@@ -12,7 +12,9 @@ function consume() {
   var queue = conn.queue('queue1', {}, function() {
     queue.subscribe(function(msg) {
       redis.lpush('chat', msg.body);
+      console.log(msg.body);
     });
+    exchange.publish(queue.name, {body: 'Hello!'});
   });
 }
 
