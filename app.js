@@ -1,5 +1,4 @@
 var amqp = require('amqp');
-var redis = require("redis").createClient();
 
 function consume() {
 
