@@ -8,7 +8,7 @@ function consume() {
   redis.auth(rtg.auth.split(":")[1]);
 
   var exchange = conn.exchange('');
-  var queue = conn.queue('queue1', {}, function() {
+  var queue = conn.queue('queue2', {}, function() {
     queue.subscribe(function(msg) {
       redis.lpush('chat', msg.body);
       console.log(msg.body);
